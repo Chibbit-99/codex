@@ -118,11 +118,11 @@
                 <div class="relative pt-10 min-h-[60px] sm:min-h-[120px]"></div>
                 <div class="mt-2 flex flex-col items-start text-pretty pe-0 sm:absolute sm:inset-x-0 sm:inset-y-0 sm:mx-auto sm:mt-0 sm:max-w-chat sm:px-4 sm:pb-[calc(var(--composer-container-height))]" style="opacity:1">
                   <div class="order-1 flex w-full flex-col gap-2 sm:top-0 sm:h-full sm:justify-center">
-                    <div class="flex w-full flex-col items-start justify-start sm:justify-end sm:mb-8 sm:h-[100px] text-2xl sm:ps-2" data-testid="launch-greeting"><h1>Hey Nathan, what’s on your mind today?</h1></div>
+                    <div id="launchGreeting" class="flex w-full flex-col items-start justify-start sm:justify-end sm:mb-8 sm:h-[100px] text-2xl sm:ps-2" data-testid="launch-greeting"><h1>Hey Nathan, what’s on your mind today?</h1></div>
                   </div>
                 </div>
               </div>
-              <div class="absolute bottom-0 flex max-w-chat justify-center px-6 text-center" data-testid="bottom-disclaimer" style="opacity:1"><div class="pb-8 text-foreground-450 text-sm dark:text-foreground-600" style="opacity:1">Copilot is an AI and may make mistakes.</div></div>
+              <div id="bottomDisclaimer" class="absolute bottom-0 flex max-w-chat justify-center px-6 text-center" data-testid="bottom-disclaimer" style="opacity:1"><div class="pb-8 text-foreground-450 text-sm dark:text-foreground-600" style="opacity:1">Copilot is an AI and may make mistakes.</div></div>
             </div>
             <div class="absolute flex end-6 origin-top-right flex-col items-end rtl:origin-top-left top-6 -me-[14px] -mt-[14px] z-30" data-testid="settings-wrapper"><div class="flex gap-2"></div></div>
             <div class="pointer-events-none absolute bottom-0 w-full sm:bottom-1/2 sm:translate-y-1/2 sm:pt-36">
@@ -156,12 +156,12 @@
                                 </div>
                                 <div class="relative bottom-0 flex justify-between pb-0.5 pe-2.5 ps-1.5">
                                   <div class="flex h-11 items-center gap-2 ps-1">
-                                    <button id="composer-create-button" aria-label="Attach files, connect apps, or make something with Copilot." type="button" class="relative flex items-center text-foreground-800 fill-foreground-800 active:text-foreground-600 active:fill-foreground-600 dark:active:text-foreground-650 dark:active:fill-foreground-650 bg-transparent safe-hover:bg-black/5 active:bg-black/3 dark:safe-hover:bg-black/30 dark:active:bg-black/20 text-sm justify-center min-h-9 min-w-9 after:rounded-xl after:absolute after:inset-0 after:pointer-events-none after:border after:border-transparent after:contrast-more:border-2 outline-2 outline-offset-1 focus-visible:z-[1] focus-visible:outline focus-visible:outline-stroke-900 h-9 select-none gap-1 rounded-2xl border border-black/8 dark:border-white/8 p-0" title="Attach files, connect apps, or make something with Copilot." data-testid="composer-create-button">
+                                    <button id="composer-create-button" aria-label="Configure Groq API key" type="button" class="relative flex items-center text-foreground-800 fill-foreground-800 active:text-foreground-600 active:fill-foreground-600 dark:active:text-foreground-650 dark:active:fill-foreground-650 bg-transparent safe-hover:bg-black/5 active:bg-black/3 dark:safe-hover:bg-black/30 dark:active:bg-black/20 text-sm justify-center min-h-9 min-w-9 after:rounded-xl after:absolute after:inset-0 after:pointer-events-none after:border after:border-transparent after:contrast-more:border-2 outline-2 outline-offset-1 focus-visible:z-[1] focus-visible:outline focus-visible:outline-stroke-900 h-9 select-none gap-1 rounded-2xl border border-black/8 dark:border-white/8 p-0" title="Configure Groq API key" data-testid="composer-create-button">
                                     <h1 style="font-size:x-large">+</h1>
                                     </button>
                                     <button aria-label="Smart" type="button" class="relative flex items-center text-foreground-800 fill-foreground-800 active:text-foreground-600 active:fill-foreground-600 dark:active:text-foreground-650 dark:active:fill-foreground-650 bg-transparent safe-hover:bg-black/5 active:bg-black/3 dark:safe-hover:bg-black/30 dark:active:bg-black/20 text-sm justify-center min-h-9 min-w-9 px-2.5 py-1 after:rounded-xl after:absolute after:inset-0 after:pointer-events-none after:border after:border-transparent after:contrast-more:border-2 outline-2 outline-offset-1 focus-visible:z-[1] focus-visible:outline focus-visible:outline-stroke-900 h-9 select-none gap-1 rounded-2xl border border-black/8 dark:border-white/8 ps-2.5 pe-2.5" title="Smart" data-testid="composer-chat-mode-smart-button"><span class="text-sm">Smart</span><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="size-4 rotate-90"><path d="M8.46967 4.21967C8.17678 4.51256 8.17678 4.98744 8.46967 5.28033L15.1893 12L8.46967 18.7197C8.17678 19.0126 8.17678 19.4874 8.46967 19.7803C8.76256 20.0732 9.23744 20.0732 9.53033 19.7803L16.7803 12.5303C17.0732 12.2374 17.0732 11.7626 16.7803 11.4697L9.53033 4.21967C9.23744 3.92678 8.76256 3.92678 8.46967 4.21967Z"></path></svg></button>
                                   </div>
-                                  <div class="flex items-center gap-2"><button aria-label="Submit message" type="button" class="relative flex items-center text-foreground-250 fill-foreground-250 active:text-foreground-350 active:fill-foreground-350 dark:text-foreground-750 dark:fill-foreground-750 dark:active:text-foreground-650 dark:active:fill-foreground-650 shadow-sm bg-background-800 safe-hover:bg-black active:bg-background-750 dark:bg-muted-400 dark:safe-hover:bg-muted-450 dark:active:bg-muted-400/80 text-sm justify-center size-9 after:rounded-xl after:absolute after:inset-0 after:pointer-events-none after:border after:border-transparent after:contrast-more:border-2 outline-2 outline-offset-1 focus-visible:z-[1] focus-visible:outline focus-visible:outline-stroke-900 rounded-2xl" title="Submit message" data-testid="submit-button"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="size-6"><path d="M4.20889 10.7327C3.9232 11.0326 3.93475 11.5074 4.23467 11.7931C4.5346 12.0788 5.00933 12.0672 5.29502 11.7673L11.2495 5.516V20.25C11.2495 20.6642 11.5853 21 11.9995 21C12.4137 21 12.7495 20.6642 12.7495 20.25V5.51565L18.7043 11.7673C18.99 12.0672 19.4648 12.0788 19.7647 11.7931C20.0646 11.5074 20.0762 11.0326 19.7905 10.7327L12.7238 3.31379C12.5627 3.14474 12.3573 3.04477 12.1438 3.01386C12.0971 3.00477 12.0489 3 11.9995 3C11.9498 3 11.9012 3.00483 11.8543 3.01406C11.6412 3.04518 11.4363 3.14509 11.2756 3.31379L4.20889 10.7327Z"></path></svg></button></div>
+                                  <div class="flex items-center gap-2"><button id="submitButton" aria-label="Submit message" type="button" class="relative flex items-center text-foreground-250 fill-foreground-250 active:text-foreground-350 active:fill-foreground-350 dark:text-foreground-750 dark:fill-foreground-750 dark:active:text-foreground-650 dark:active:fill-foreground-650 shadow-sm bg-background-800 safe-hover:bg-black active:bg-background-750 dark:bg-muted-400 dark:safe-hover:bg-muted-450 dark:active:bg-muted-400/80 text-sm justify-center size-9 after:rounded-xl after:absolute after:inset-0 after:pointer-events-none after:border after:border-transparent after:contrast-more:border-2 outline-2 outline-offset-1 focus-visible:z-[1] focus-visible:outline focus-visible:outline-stroke-900 rounded-2xl" title="Submit message" data-testid="submit-button"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="size-6"><path d="M4.20889 10.7327C3.9232 11.0326 3.93475 11.5074 4.23467 11.7931C4.5346 12.0788 5.00933 12.0672 5.29502 11.7673L11.2495 5.516V20.25C11.2495 20.6642 11.5853 21 11.9995 21C12.4137 21 12.7495 20.6642 12.7495 20.25V5.51565L18.7043 11.7673C18.99 12.0672 19.4648 12.0788 19.7647 11.7931C20.0646 11.5074 20.0762 11.0326 19.7905 10.7327L12.7238 3.31379C12.5627 3.14474 12.3573 3.04477 12.1438 3.01386C12.0971 3.00477 12.0489 3 11.9995 3C11.9498 3 11.9012 3.00483 11.8543 3.01406C11.6412 3.04518 11.4363 3.14509 11.2756 3.31379L4.20889 10.7327Z"></path></svg></button></div>
                                 </div>
                               </div>
                             </div>
@@ -169,7 +169,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="flex h-[150px] w-full max-w-chat flex-none items-end px-2 sm:flex-initial sm:items-start z-20" style="opacity:1"><div class="mx-auto flex w-full flex-col gap-3 px-2 pointer-events-auto sm:mt-8"></div></div>
+                    <div id="conversationShell" class="flex h-[150px] w-full max-w-chat flex-none items-end px-2 sm:flex-initial sm:items-start z-20" style="opacity:1"><div id="chatMessages" class="mx-auto flex w-full flex-col gap-3 px-2 pointer-events-auto sm:mt-8"></div></div>
                   </div>
                 </div>
               </div>
@@ -183,42 +183,175 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("userInput");
+    const submitButton = document.getElementById("submitButton");
+    const chatMessages = document.getElementById("chatMessages");
+    const greeting = document.getElementById("launchGreeting");
+    const disclaimer = document.getElementById("bottomDisclaimer");
+    const composerButton = document.getElementById("composer-create-button");
 
-    if (!input) return;
+    if (!input || !submitButton || !chatMessages) return;
 
     const maxHeight = 150;
+    const groqEndpoint = "https://api.groq.com/openai/v1/chat/completions";
+    const storageKey = "groq_api_key";
+    const systemPrompt = "You are a helpful AI copilot embedded in a web UI. Keep responses clear, concise, and practical.";
+    let isLoading = false;
+    let conversation = [];
+    let apiKey = localStorage.getItem(storageKey) || "";
 
-    input.addEventListener("input", () => {
+    const autoResize = () => {
         input.style.height = "auto";
         const newHeight = Math.min(input.scrollHeight, maxHeight);
         input.style.height = newHeight + "px";
+        input.style.overflowY = input.scrollHeight > maxHeight ? "auto" : "hidden";
+    };
 
-        // allow scrolling when max height reached
-        if (input.scrollHeight > maxHeight) {
-            input.style.overflowY = "auto";
-        } else {
-            input.style.overflowY = "hidden";
-        }
-
-        // hide greeting
-        const startmessage = document.getElementsByClassName(
-            "flex w-full flex-col items-start justify-start sm:justify-end sm:mb-8 sm:h-[100px] text-2xl sm:ps-2"
-        )[0];
-
-        if (startmessage) {
-            startmessage.style.opacity = "0";
-            startmessage.style.transition = "opacity 0.3s ease";
+    const hideIntro = () => {
+        if (greeting && greeting.style.display !== "none") {
+            greeting.classList.add("fade-out");
             setTimeout(() => {
-                startmessage.style.display = "none";
+                greeting.style.display = "none";
             }, 300);
         }
+
+        if (disclaimer && disclaimer.style.display !== "none") {
+            disclaimer.classList.add("fade-out");
+            setTimeout(() => {
+                disclaimer.style.display = "none";
+            }, 300);
+        }
+
+        const conversationShell = document.getElementById("conversationShell");
+        if (conversationShell) {
+            conversationShell.classList.add("chat-active");
+        }
+    };
+
+    const setLoading = (loading) => {
+        isLoading = loading;
+        submitButton.disabled = loading;
+        submitButton.classList.toggle("is-loading", loading);
+        input.disabled = loading;
+    };
+
+    const promptForApiKey = () => {
+        const entered = window.prompt("Enter your Groq API key. It will be stored in this browser via localStorage.", apiKey || "");
+        if (entered === null) return apiKey;
+        apiKey = entered.trim();
+        if (apiKey) {
+            localStorage.setItem(storageKey, apiKey);
+        } else {
+            localStorage.removeItem(storageKey);
+        }
+        return apiKey;
+    };
+
+    const appendMessage = (role, content) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = `message-row ${role}`;
+
+        const bubble = document.createElement("div");
+        bubble.className = "message-bubble";
+        bubble.textContent = content;
+
+        wrapper.appendChild(bubble);
+        chatMessages.appendChild(wrapper);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return bubble;
+    };
+
+    const updateAssistantMessage = (bubble, content) => {
+        bubble.textContent = content;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const sendMessage = async () => {
+        const content = input.value.trim();
+        if (!content || isLoading) return;
+
+        hideIntro();
+
+        if (!apiKey) {
+            promptForApiKey();
+        }
+
+        if (!apiKey) {
+            appendMessage("assistant", "Add a Groq API key before sending a message.");
+            return;
+        }
+
+        appendMessage("user", content);
+        conversation.push({ role: "user", content });
+        input.value = "";
+        autoResize();
+
+        const assistantBubble = appendMessage("assistant", "Thinking…");
+        setLoading(true);
+
+        try {
+            const response = await fetch(groqEndpoint, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${apiKey}`,
+                },
+                body: JSON.stringify({
+                    model: "llama-3.3-70b-versatile",
+                    temperature: 0.6,
+                    messages: [
+                        { role: "system", content: systemPrompt },
+                        ...conversation,
+                    ],
+                }),
+            });
+
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                const errorMessage = data?.error?.message || `Groq request failed with status ${response.status}.`;
+                throw new Error(errorMessage);
+            }
+
+            const reply = data?.choices?.[0]?.message?.content?.trim();
+            if (!reply) {
+                throw new Error("Groq returned an empty response.");
+            }
+
+            conversation.push({ role: "assistant", content: reply });
+            updateAssistantMessage(assistantBubble, reply);
+        } catch (error) {
+            const message = error instanceof Error ? error.message : "Something went wrong while contacting Groq.";
+            updateAssistantMessage(assistantBubble, message);
+        } finally {
+            setLoading(false);
+            input.focus();
+        }
+    };
+
+    input.addEventListener("input", () => {
+        autoResize();
+        if (input.value.trim()) {
+            hideIntro();
+        }
     });
+
+    input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    submitButton.addEventListener("click", sendMessage);
+    composerButton?.addEventListener("click", promptForApiKey);
+
+    autoResize();
 });
 </script>
 <style>
     .fade-out {
-    opacity: 0;
-    transition: opacity 0.35s ease;
+        opacity: 0;
+        transition: opacity 0.35s ease;
     }
 
     .collapse {
@@ -234,6 +367,61 @@ document.addEventListener("DOMContentLoaded", () => {
         resize: none;
     }
 
+    #chatMessages {
+        max-height: min(54vh, 560px);
+        overflow-y: auto;
+        padding-bottom: 1rem;
+    }
 
+    .chat-active {
+        height: auto !important;
+        min-height: 220px;
+        align-items: stretch !important;
+    }
+
+    .message-row {
+        display: flex;
+        width: 100%;
+    }
+
+    .message-row.user {
+        justify-content: flex-end;
+    }
+
+    .message-row.assistant {
+        justify-content: flex-start;
+    }
+
+    .message-bubble {
+        max-width: min(85%, 720px);
+        padding: 0.9rem 1rem;
+        border-radius: 20px;
+        white-space: pre-wrap;
+        line-height: 1.5;
+        backdrop-filter: blur(16px);
+        box-shadow: rgba(0, 0, 0, 0.18) 0 10px 25px;
+    }
+
+    .message-row.user .message-bubble {
+        background: rgba(95, 126, 255, 0.92);
+        color: #fff;
+        border-bottom-right-radius: 8px;
+    }
+
+    .message-row.assistant .message-bubble {
+        background: rgba(255, 255, 255, 0.9);
+        color: #111827;
+        border-bottom-left-radius: 8px;
+    }
+
+    html[data-theme="dark"] .message-row.assistant .message-bubble {
+        background: rgba(30, 41, 59, 0.92);
+        color: #f8fafc;
+    }
+
+    #submitButton:disabled {
+        opacity: 0.65;
+        cursor: wait;
+    }
 </style>
 </html>
